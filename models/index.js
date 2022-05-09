@@ -1,13 +1,33 @@
-const User = require('./User');
-const Project = require('./Project');
+const Game= require("./Game");
+const Platform= require("./Platform");
+const Genre= require("./Genre");
+const GameGenre= require("./GameGenre");
+const GamePlatform= require("./GamePlatform");
 
-User.hasMany(Project, {
-  foreignKey: 'user_id',
-  onDelete: 'CASCADE'
+Game.belongsToMany(Genre,{
+    through: GameGenre,
+    foreignKey: "game_g_id"
 });
 
-Project.belongsTo(User, {
-  foreignKey: 'user_id'
+Game.belongsToMany(Platform,{
+    through: GamePlatform,
+    foreignKey: "game_p_id"
 });
 
-module.exports = { User, Project };
+Platform.belongsToMany(Game,{
+    through: GamePlatform,
+    foreignKey: "plat_id"
+});
+
+Genre.belongsToMany(Game,{
+    through: GameGenre,
+    foreignKey: "genre_id"
+});
+
+module.exports= {
+    Game,
+    Genre,
+    Platform,
+    GameGenre,
+    GamePlatform
+}
