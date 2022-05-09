@@ -18,8 +18,8 @@ Deployed version can be found [Here](https://github.com/Rickythakar/savepoint)
 
 ## Some pictures of the final product!
 
-![Startup of Page]()
-![Live link deployed]()
+![]()
+![]()
 ![]()
 
 ## Indepth analysis
@@ -43,7 +43,7 @@ Deployed version can be found [Here](https://github.com/Rickythakar/savepoint)
 
 [Hailey Bates-Corona](https://github.com/haileyrb25)
 
-[Lex Mathews](https://github.com/ArchRascal2988)
+[Lex Matthews](https://github.com/ArchRascal2988)
 
 [Michael Sands](https://github.com/Msands21)
 
