@@ -9,17 +9,16 @@ const genres=[
 
 const init=async ()=>{
     let totGamesRaw=[];
-    for(i=0; i<10; i++){
-        let offset= (i*100)+i
-        let gamesRaw= await grabRaw(offset);
-        totGamesRaw= totGamesRaw.concat(gamesRaw);
-    }
-   await deconstructRaw(totGamesRaw);
+    // for(i=0; i<20; i++){
+    //     let gamesRaw= await grabRaw(offset);
+    //     totGamesRaw= totGamesRaw.concat(gamesRaw);
+    // }
+    let gamesRaw= await grabRaw()
+   await deconstructRaw(gamesRaw);
 
 }
 
-const grabRaw= async (offset)=>{
-    console.log(offset);
+const grabRaw= async ()=>{
     const data= await axios({
         method: "post",
         url: "https://api.igdb.com/v4/games",
@@ -27,7 +26,7 @@ const grabRaw= async (offset)=>{
             "Client-ID": "236s12ecjdnerb99bz116ajg178wx1",
             "Authorization": "Bearer 9sgq4fie7v3iaay562o1rorxbb4wfz"
         },
-        data: `fields: cover.url, first_release_date, genres.name, name, platforms.name,player_perspectives.name, summary, total_rating, involved_companies.company.name, videos.video_id; where: total_rating!=null & player_perspectives!= null & videos!=null & cover!=null &category=0 & platforms.name= ("PC(Microsoft Windows)", "Mac", "Nintendo Switch", "Xbox One", "PlayStation 4", "PlayStation 3", "PlayStation 2", "Playstation", "Dreamcast", "Xbox", "Nintendo 64", "Wii U", "Super Nintendo Entertainment System (SNES)", "Nintendo GameCube", "Wii", "Playstation 5", "Xbox Series X|S", "Xbox 360") & genres.name != "Visual Novel" & genres.name != "Point-and-Click" & genres.name != "Indie"; limit: 100; offset: ${offset}; sort: total_rating desc;`
+        data: `fields: cover.url, first_release_date, genres.name, name, platforms.name,player_perspectives.name, summary, total_rating, involved_companies.company.name, videos.video_id; where: total_rating!=null & player_perspectives!= null & videos!=null & cover!=null &category=0 & platforms.name= ("PC(Microsoft Windows)", "Mac", "Nintendo Switch", "Xbox One", "PlayStation 4", "PlayStation 3", "PlayStation 2", "Playstation", "Dreamcast", "Xbox", "Nintendo 64", "Wii U", "Super Nintendo Entertainment System (SNES)", "Nintendo GameCube", "Wii", "Playstation 5", "Xbox Series X|S", "Xbox 360") & genres.name != "Visual Novel" & genres.name != "Point-and-Click" & genres.name != "Indie"; limit: 500; sort: total_rating desc;`
     }).then(async (res)=>{
         return await res.data;
     });

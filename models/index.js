@@ -3,6 +3,9 @@ const Platform= require("./Platform");
 const Genre= require("./Genre");
 const GameGenre= require("./GameGenre");
 const GamePlatform= require("./GamePlatform");
+const Playlist= require("./Playlist");
+const User= require("./User");
+const Review= require("./Review");
 
 Game.belongsToMany(Genre,{
     through: GameGenre,
@@ -23,6 +26,24 @@ Genre.belongsToMany(Game,{
     through: GameGenre,
     foreignKey: "genre_id"
 });
+
+Review.belongsTo(User,{
+    foreignKey: "author_id"
+});
+
+Review.belongsTo(Game,{
+    foreignKey: "game_id"
+});
+
+User.hasMany(Review,{
+    foreignKey: "author_id",
+    onDelete: "CASCADE"
+});
+
+Game.hasMany(Review,{
+    foreignKey: "game_id",
+    onDelete: "CASCADE"
+})
 
 module.exports= {
     Game,
