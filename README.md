@@ -3,7 +3,7 @@
 
 *With this website, users can login to review their favorite saved games or add games to a wishlist to help keep track of games they would like to try out. Users can also search for new possible games to play with a searchbar that will pull up data based on genre or game console preference.*
 
-Deployed version can be found [Here](https://github.com/Rickythakar/savepoint)
+Deployed version can be found [Here]()
 
  ## How to use this site:
 1. 
@@ -36,6 +36,7 @@ Deployed version can be found [Here](https://github.com/Rickythakar/savepoint)
 - Google Fonts
 - IGDB.com API
 - Just in Mind wireframe
+- Heroku
 
 
 ## User's Personal Github Accounts
