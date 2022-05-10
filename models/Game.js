@@ -5,6 +5,10 @@ class Game extends Model{
     convertDate= async () =>{
         return new Date(this.release_date).toLocaleDateString("en-US",{day:"numeric", month:"short", year:"numeric"});
     }
+
+    getId(){
+        return this.id;
+      }
 }
 
 Game.init(
@@ -25,7 +29,7 @@ Game.init(
             defaultValue: null
         },
         release_date:{
-            type: DataTypes.DECIMAL,
+            type: DataTypes.INTEGER,
             allowNull:false
         },
         description:{

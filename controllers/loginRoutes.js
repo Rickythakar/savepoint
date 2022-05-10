@@ -15,7 +15,7 @@ router.get('/', async(req,res)=>{
     }
 });
 
-router.post('/', async(req,res)=>{
+router.post('/signup', async(req,res)=>{
     try{
         const newUser= await User.create({
             username: req.body.username,
@@ -25,7 +25,7 @@ router.post('/', async(req,res)=>{
 
         req.session.save(()=>{
             req.session.loggedIn= true;
-            req.session.userId=
+            req.session.userId= newUser.id;
             res.status(200).json(newUser);
             console.log("You are logged in now.");
         })
@@ -49,6 +49,7 @@ router.post('/login', async(req,res)=>{
             if(!validPass) res.status(400).json({message:"Incorrect password. Try again please."});
             else{
                 req.session.loggedIn= true; 
+                req.session.userId= userData.id;
                 res.status(200).json(userData);
             console.log("You are logged in now.");
             }    

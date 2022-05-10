@@ -1,8 +1,10 @@
 const router = require('express').Router();
-const userRoutes = require('./reviewRoutes');
+const reviewRoutes = require('./reviewRoutes');
+const playlistRoutes = require('./playlistRoutes');
 const gameRoutes = require('./gameRoutes');
 
-router.use('/users', userRoutes);
+router.use('/reviews', reviewRoutes);
+router.use('/playlist', playlistRoutes)
 router.use('/games', gameRoutes);
 
 module.exports = router;
