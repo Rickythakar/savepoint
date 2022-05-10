@@ -3,10 +3,8 @@ const Platform= require("./Platform");
 const Genre= require("./Genre");
 const GameGenre= require("./GameGenre");
 const GamePlatform= require("./GamePlatform");
-const Playlist= require("./Playlist");
 const User= require("./User");
 const Review= require("./Review");
-const User = require("./User");
 const Playlist = require("./Playlist");
 
 Game.belongsToMany(Genre,{
@@ -62,5 +60,8 @@ module.exports= {
     Genre,
     Platform,
     GameGenre,
-    GamePlatform
+    GamePlatform,
+    User,
+    Review,
+    Playlist
 }
