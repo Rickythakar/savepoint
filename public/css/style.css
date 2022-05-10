@@ -1,24 +1,18 @@
-header, .project:not(:last-child) {
-  border-bottom: 1px solid #ccc;
+/* root variables */
+:root {
+  --light-pink: #F1BBF2;
+  --purple: #6B3073;
+  --dark-purple: #381E40;
+  --grey: #141726;
+  --blue: #1D4B73;
 }
 
-.no-button {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  color: #1b89bc;
-  text-decoration: none;
-  font-size: 100%;
+/* styling for favorites page */
+/* header */
+header .display-4 {
+color: #6B3073;
 }
 
-.no-button:hover {
-  color: #065b83;
-  text-decoration: underline;
-}
-
-.dollar-amount {
-  color: #056605;
-  font-weight: bold;
-  margin-left: -5px;
+header .container {
+  background-color: #141726;
 }
