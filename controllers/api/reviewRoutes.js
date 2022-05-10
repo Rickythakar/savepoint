@@ -3,7 +3,7 @@ const router = require('express').Router();
 const { User, Game, Review } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-// router.get("/" async (req,res)=>{
+// router.get("/", async (req,res)=>{
 //   try{
 //     const reviewData= await Review.findAll({
 //       where:{user_id: req.session.userId}
