@@ -29,6 +29,7 @@ router.post('/signup', async(req,res)=>{
             res.status(200).json(newUser);
             console.log("You are logged in now.");
         })
+        res.render('/home');
 
     } catch(err){
         res.status(500).json(err);
