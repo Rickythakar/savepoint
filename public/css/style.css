@@ -8,11 +8,9 @@
 }
 
 /* styling for favorites page */
-/* header */
-header .display-4 {
-color: #6B3073;
-}
 
-header .container {
-  background-color: #141726;
+
+
+li .nav-item {
+  color: #;
 }
