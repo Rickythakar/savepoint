@@ -15,9 +15,11 @@ router.get("/", async(req,res) =>{
 
 router.get("/games/:gameName", async(req,res) =>{
     try{
-        const gameData= await Game.findOne({
+        const gameData= await Game.findAll({
             where:{
-                title: req.params.gameName
+                title:{
+                    [Op.like]:req.params.gameName
+                }
             },
             include:[Genre,Platform]
         })
