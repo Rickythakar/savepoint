@@ -27,7 +27,7 @@ router.post('/add', withAuth, async (req,res)=>{
   }
 });
 
-router.put('/:game_Id', withAuth, async (req,res)=>{
+router.put('/:game_Id',  async (req,res)=>{
   try{
     const newPlayed= await Playlist.update({
       played: true
