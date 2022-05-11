@@ -4,16 +4,22 @@ const withAuth = require('../utils/auth');
 
 router.get('/', async (req,res)=>{
     try{
-        const currUser= await User.findByPk(req.session.userId);
-        const user= currUser.get({plain:true});
-        const playlData= await Playlist.findAll({
+        const currUser= await User.findOne({
+            attributes:['username'],
             where:{
-                user_id: req.session.userId
+                id: req.body.userId
             },
-            include:[Game],
-            attributes: ["game_id", "played"]
-        })
-        
+            include:{
+                model: Game,
+                attributes:['title'],
+                through:{
+                    attributes:['played']
+                }
+            } 
+        });
+        const user= currUser.get({plain:true});
+        res.status(200).json(user);
+
         res.render('favorites',{
             user,
             logged_in: req.session.logged_in
