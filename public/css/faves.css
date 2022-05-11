@@ -1,0 +1,52 @@
+:root {
+    --light-pink: #F1BBF2;
+    --purple: #6B3073;
+    --dark-purple: #381E40;
+    --grey: #141726;
+    --blue: #1D4B73;
+  }
+
+
+.parent {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    }
+    
+    .div1 { grid-area: 1 / 1 / 2 / 6; }
+    .div2 { 
+        grid-area: 2 / 1 / 3 / 3;
+        background-color: #1D4B73; }
+    .div3 { grid-area: 3 / 2 / 6 / 4; }
+    .div4 { grid-area: 3 / 4 / 6 / 6; }
+
+
+    /* styling for favorites page */
+/* not styled correctly yet */
+/* 
+header{
+    text-align: center;
+    font-size: 50px;
+    font-family: monospace;
+    height: 100px;
+  
+  }
+  
+  .glow {
+    font-size: 80px;
+    color: #fff;
+    text-align: center;
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternate;
+  }
+  @-webkit-keyframes glow {
+    from {
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+    }
+    to {
+      text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+    }
+  } */
