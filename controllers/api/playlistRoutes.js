@@ -1,18 +1,6 @@
 const router = require('express').Router();
-const { Playlist, User, Game } = require('../../models');
+const { Playlist} = require('../../models');
 const withAuth = require('../../utils/auth');
-
-router.get("/", withAuth, async (req,res)=>{
-  try{
-    const playlistData= await Playlist.findAll({
-      where:{user_id: req.session.userId}
-    })
-    res.status(200).json(playlistData);
-  }
-  catch(err){
-    res.status(500).json(err);
-  }
-});
 
 router.post('/add', withAuth, async (req,res)=>{
   try{
