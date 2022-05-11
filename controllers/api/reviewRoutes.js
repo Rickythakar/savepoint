@@ -3,21 +3,15 @@ const router = require('express').Router();
 const { User, Game, Review } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-// router.get("/", async (req,res)=>{
-//   try{
-//     const reviewData= await Review.findAll({
-//       where:{user_id: req.session.userId}
-//     })
-//     res.status(200).json(reviewData);
-//   }
-//   catch(err){
-//     res.status(500).json(err);
-//   }
-// });
 
 router.post('/addreview', withAuth, async (req,res)=>{
   try{
-    const newReview= await Review.create(req.body)
+    const newReview= await Review.create({
+      rating: req.body.rating,
+      content: req.body.content,
+      game_id: req.body.gameId,
+      author_id: req.body.authorId,
+    })
     res.status(200).json(newReview);
   }
   catch(err){
