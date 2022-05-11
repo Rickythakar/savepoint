@@ -2,6 +2,7 @@ const axios= require("axios");
 const loginSubmit=document.querySelector('#loginBtn');
 const signupSubmit=document.querySelector('#');
 
+
 const loginFormHandler = async (event) => {
   event.preventDefault();
   const uEmail = document.querySelector('#typeEmailX').value.trim();
