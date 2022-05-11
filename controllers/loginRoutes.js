@@ -6,8 +6,24 @@ router.get('/', async(req,res)=>{
         if(req.session.loggedIn){
             res.redirect('/home');
         } else{
-            res.render("login", {
+            res.render("loginlandingpage", {
+                isLogin: true,
                 isSignup: false
+            })
+        }
+    } catch(err){
+        res.status(500).json(err);
+    }
+});
+
+router.get('/signup', async(req,res)=>{
+    try{
+        if(req.session.loggedIn){
+            res.redirect('/home');
+        } else{
+            res.render("loginlandingpage", {
+                isLogin: true,
+                isSignup: true
             })
         }
     } catch(err){

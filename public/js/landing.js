@@ -1,7 +1,6 @@
 const axios= require("axios");
 const loginSubmit=document.querySelector('#loginBtn');
 const signupSubmit=document.querySelector('#');
-const switchBtn= document.querySelector('#');
 
 
 const loginFormHandler = async (event) => {
@@ -47,4 +46,4 @@ const signupFormHandler = async (event) => {
 
 loginSubmit.addEventListener('submit', loginFormHandler);
 signupSubmit.addEventListener('submit', signupFormHandler);
-switchBtn.addEventListener('click', switchHandler);
+

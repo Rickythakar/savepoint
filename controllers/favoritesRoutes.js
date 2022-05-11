@@ -18,7 +18,13 @@ router.get('/', async (req,res)=>{
                 }
             } 
         });
-        res.status(200).json(currUser);
+        const userData= await currUser.get({plain:true});
+
+        res.render("favorites",{
+            userData,
+            loggedIn: true,
+            isLogin: false
+        })
 
     }
     catch(err){
