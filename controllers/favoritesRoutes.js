@@ -6,7 +6,13 @@ router.get('/', async (req,res)=>{
     try{
         const currUser= await User.findByPk(req.session.userId);
         const user= currUser.get({plain:true});
-        const playlData= await Playlist.
+        const playlData= await Playlist.findAll({
+            where:{
+                user_id: req.session.userId
+            },
+            include:[Game],
+            attributes: ["game_id", "played"]
+        })
         
         res.render('favorites',{
             user,
@@ -18,3 +24,5 @@ router.get('/', async (req,res)=>{
         res.status(500).json(err)
     }
 });
+
+module.exports= router;
