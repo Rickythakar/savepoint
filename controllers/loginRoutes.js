@@ -8,6 +8,7 @@ router.get('/', async(req,res)=>{
         } else{
             res.render("login", {
                 loggedIn: req.session.loggedIn,
+                isSignup: false
             })
         }
     } catch(err){
@@ -27,9 +28,8 @@ router.post('/signup', async(req,res)=>{
             req.session.loggedIn= true;
             req.session.userId= newUser.id;
             res.status(200).json(newUser);
-            console.log("You are logged in now.");
+            res.redirect('/home');
         })
-        res.render('/home');
 
     } catch(err){
         res.status(500).json(err);
@@ -40,7 +40,7 @@ router.post('/login', async(req,res)=>{
     try{
         const userData= await User.findOne({
             where:{
-                username:req.body.username
+                email:req.body.email
             }});
 
         if(!userData){
@@ -52,7 +52,7 @@ router.post('/login', async(req,res)=>{
                 req.session.loggedIn= true; 
                 req.session.userId= userData.id;
                 res.status(200).json(userData);
-            console.log("You are logged in now.");
+                res.redirect('/home');
             }    
         }
     } catch(err){
@@ -64,6 +64,7 @@ router.post('/logout', async(req,res)=>{
     if(req.session.loggedIn) {
         req.session.destroy(()=>{
             res.status(204).end();
+            res.redirect('/landing');
         })
      } else {
         res.status(404).end();
