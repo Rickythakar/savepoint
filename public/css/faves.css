@@ -6,7 +6,7 @@
     --blue: #1D4B73;
   }
 
-  .parent {
+  div .parent {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(5, 1fr);
@@ -14,15 +14,15 @@
     grid-row-gap: 0px;
     }
     
-    .div1 { 
-        grid-area: 1 / 1 / 2 / 4;
+    .search { 
+        grid-column: 1 / 1 / 2 / 4;
         background-color: #1D4B73; 
     }
-    .div2 { 
+    .played { 
         grid-area: 2 / 2 / 6 / 4;
         background-color: #381E40; 
     }
-    .div3 { 
+    .wishlist { 
         grid-area: 2 / 4 / 6 / 6;
         background-color: #6B3073; 
     }
