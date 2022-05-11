@@ -29,7 +29,7 @@ router.post('/signup', async(req,res)=>{
             res.status(200).json(newUser);
             console.log("You are logged in now.");
         })
-        res.render('/home');
+        res.redirect('/home');
 
     } catch(err){
         res.status(500).json(err);
@@ -40,7 +40,7 @@ router.post('/login', async(req,res)=>{
     try{
         const userData= await User.findOne({
             where:{
-                username:req.body.username
+                email:req.body.email
             }});
 
         if(!userData){
@@ -52,7 +52,7 @@ router.post('/login', async(req,res)=>{
                 req.session.loggedIn= true; 
                 req.session.userId= userData.id;
                 res.status(200).json(userData);
-            console.log("You are logged in now.");
+                res.redirect('/home');
             }    
         }
     } catch(err){
