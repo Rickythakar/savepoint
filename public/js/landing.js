@@ -1,20 +1,11 @@
 const axios= require("axios");
-
-
-const logout = async () => {
-  const response = await axios.post('/landing/logout');
-
-  if (response.ok) {
-    window.location.replace('/landing');
-  } else {
-    alert(response.statusText);
-  }
-};
+const loginSubmit=document.querySelector('#loginBtn');
+const signupSubmit=document.querySelector('#');
 
 const loginFormHandler = async (event) => {
   event.preventDefault();
-  const uEmail = document.querySelector('#email-login').value.trim();
-  const pass = document.querySelector('#password-login').value.trim();
+  const uEmail = document.querySelector('#typeEmailX').value.trim();
+  const pass = document.querySelector('#typePasswordX').value.trim();
 
   if (uEmail && pass) {
     const response = await axios.post('/login', {
@@ -33,14 +24,15 @@ const loginFormHandler = async (event) => {
 const signupFormHandler = async (event) => {
   event.preventDefault();
 
-  const uName = document.querySelector('#name-signup').value.trim();
-  const uEmail = document.querySelector('#email-signup').value.trim();
-  const uPass = document.querySelector('#password-signup').value.trim();
+  const uName = document.querySelector('#').value.trim();
+  const uEmail = document.querySelector('#').value.trim();
+  const uPass = document.querySelector('#').value.trim();
 
   if (uName && uEmail && uPass) {
     const response = await axios.post('/landing/signup', {
+      username: uName,
       email: uEmail,
-      password: pass
+      password: uPass
     });
 
     if (response.ok) {
@@ -51,13 +43,6 @@ const signupFormHandler = async (event) => {
   }
 };
 
-document
-  .querySelector('.login-form')
-  .addEventListener('submit', loginFormHandler);
+loginSubmit.addEventListener('submit', loginFormHandler);
 
-document
-  .querySelector('.signup-form')
-  .addEventListener('submit', signupFormHandler);
-
-
-document.querySelector('#logout').addEventListener('click', logout);
+signupSubmit.addEventListener('submit', signupFormHandler);
