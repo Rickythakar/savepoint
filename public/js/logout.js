@@ -1,14 +1,13 @@
-const logout = async () => {
-  const response = await fetch('/api/users/logout', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-  });
+const axios= require("axios");
 
-  if (response.ok) {
-    document.location.replace('/');
-  } else {
-    alert(response.statusText);
-  }
-};
+const logout = async () => {
+    const response = await axios.post('/landing/logout');
+  
+    if (response.ok) {
+      window.location.replace('/landing');
+    } else {
+      alert(response.statusText);
+    }
+  };
 
 document.querySelector('#logout').addEventListener('click', logout);
