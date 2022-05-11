@@ -1,8 +1,9 @@
 const router = require('express').Router();
-const{User, Playlist, Game} = require("../models");
+const{User, Game} = require("../models");
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req,res)=>{
+    console.log("getting user...");
     try{
         const currUser= await User.findOne({
             attributes:['username'],
@@ -17,14 +18,8 @@ router.get('/', async (req,res)=>{
                 }
             } 
         });
-        const user= currUser.get({plain:true});
-        res.status(200).json(user);
+        res.status(200).json(currUser);
 
-        res.render('favorites',{
-            user,
-            logged_in: req.session.logged_in
-        })
-    
     }
     catch(err){
         res.status(500).json(err)

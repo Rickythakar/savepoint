@@ -2,10 +2,10 @@ const router = require('express').Router();
 const { Playlist} = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.post('/add', withAuth, async (req,res)=>{
+router.post('/add', async (req,res)=>{
   try{
     const newGame= await Playlist.create({
-      user_id: req.session.userId,
+      user_id: req.body.userId,
       game_id: req.body.gameId
     })
     res.status(200).json(newGame);
