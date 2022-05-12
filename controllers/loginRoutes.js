@@ -1,15 +1,12 @@
 const router = require('express').Router();
 const {User} = require("../models");
 
-const stylesheetHref= "../../public/css/landing.css";
-const scriptSrc= "../../public/js/landing.js";
-
 router.get('/', async(req,res)=>{
     try{
         if(req.session.loggedIn){
             res.redirect('/home');
         } else{
-            res.render("loginlandingpage", {
+            res.render("login", {
                 isLogin: true,
                 isSignup: false,
                 script: scriptSrc
@@ -26,7 +23,7 @@ router.get('/signup', async(req,res)=>{
         if(req.session.loggedIn){
             res.redirect('/home');
         } else{
-            res.render("loginlandingpage", {
+            res.render("login", {
                 isLogin: true,
                 isSignup: true
             })
