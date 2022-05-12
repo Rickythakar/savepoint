@@ -8,11 +8,11 @@ router.get('/', async (req,res)=>{
         const currUser= await User.findOne({
             attributes:['username'],
             where:{
-                id: req.body.userId
+                id: req.session.userId
             },
             include:{
                 model: Game,
-                attributes:['title'],
+                attributes:['title', 'cover_art_url', 'id'],
                 through:{
                     attributes:['played']
                 }
@@ -22,7 +22,7 @@ router.get('/', async (req,res)=>{
 
         res.render("favorites",{
             userData,
-            loggedIn: true,
+            loggedIn: req.session.userId,
             isLogin: false
         })
 
