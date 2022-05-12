@@ -6,10 +6,8 @@ router.get('/', async(req,res)=>{
         if(req.session.loggedIn){
             res.redirect('/home');
         } else{
-            res.render("login", {
-                isLogin: true,
-                isSignup: false,
-                script: scriptSrc
+            res.render('login' ,{
+                isLogin: true
             })
 
         }
@@ -23,9 +21,8 @@ router.get('/signup', async(req,res)=>{
         if(req.session.loggedIn){
             res.redirect('/home');
         } else{
-            res.render("login", {
-                isLogin: true,
-                isSignup: true
+            res.render('signup', {
+                isLogin: true
             })
         }
     } catch(err){

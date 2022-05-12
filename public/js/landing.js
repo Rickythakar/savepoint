@@ -34,9 +34,9 @@ const signupFormHandler = async (event) => {
 
   console.log("hi :)");
 
-  const uName = document.querySelector('#signupUser').value.trim();
-  const uEmail = document.querySelector('#signupEmail').value.trim();
-  const uPass = document.querySelector('#signupPass').value.trim();
+  const uName = document.querySelector('#typeUserX').value.trim();
+  const uEmail = document.querySelector('#typeEmailX').value.trim();
+  const uPass = document.querySelector('#typePasswordX').value.trim();
 
   if (uName && uEmail && uPass) {
     const response = await axios.post('/landing/signup', {
@@ -44,7 +44,7 @@ const signupFormHandler = async (event) => {
       email: uEmail,
       password: uPass
     });
-
+    console.log(response);
     if (response) {
       window.location.replace('/home');
     } else {

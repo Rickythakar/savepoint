@@ -68,10 +68,11 @@ router.get('/single/:id', async(req,res) => {
         gameData.release_date= await gameData.convertDate();
         const gameResult = gameData.get({plain:true})
         console.log(gameResult);
-        res.render ('gameDetails',{
-            gameResult,
-            isLogin: false
-        })
+        // res.render ('gameDetails',{
+        //     gameResult,
+        //     isLogin: false
+        // })
+        res.status(200).json(gameResult);
     }
     catch(err){
         res.status(400).json(err);
