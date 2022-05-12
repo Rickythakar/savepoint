@@ -9,7 +9,6 @@ router.get('/', async(req,res)=>{
             res.render("login", {
                 isLogin: true,
                 isSignup: false,
-                script: scriptSrc
             })
 
         }
