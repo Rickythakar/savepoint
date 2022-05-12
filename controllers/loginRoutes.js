@@ -5,11 +5,27 @@ router.get('/', async(req,res)=>{
     try{
         if(req.session.loggedIn){
             res.redirect('/home');
-        // } else{
-        //     // res.render("login", {
-        //         loggedIn: req.session.loggedIn,
-        //         isSignup: false
-        //     })
+        } else{
+            res.render("loginlandingpage", {
+                isLogin: true,
+                isSignup: false
+            })
+
+        }
+    } catch(err){
+        res.status(500).json(err);
+    }
+});
+
+router.get('/signup', async(req,res)=>{
+    try{
+        if(req.session.loggedIn){
+            res.redirect('/home');
+        } else{
+            res.render("loginlandingpage", {
+                isLogin: true,
+                isSignup: true
+            })
         }
     } catch(err){
         res.status(500).json(err);
@@ -28,10 +44,9 @@ router.post('/signup', async(req,res)=>{
             req.session.loggedIn= true;
             req.session.userId= newUser.id;
             res.status(200).json(newUser);
-            res.redirect('/home');
         })
-
-    } catch(err){
+    } 
+    catch(err){
         res.status(500).json(err);
     }
 });
@@ -52,7 +67,6 @@ router.post('/login', async(req,res)=>{
                 req.session.loggedIn= true; 
                 req.session.userId= userData.id;
                 res.status(200).json(userData);
-                res.redirect('/home');
             }    
         }
     } catch(err){
@@ -64,7 +78,6 @@ router.post('/logout', async(req,res)=>{
     if(req.session.loggedIn) {
         req.session.destroy(()=>{
             res.status(204).end();
-            res.redirect('/landing');
         })
      } else {
         res.status(404).end();

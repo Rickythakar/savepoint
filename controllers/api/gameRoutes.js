@@ -7,9 +7,12 @@ router.get("/", async(req,res) =>{
         const gameData= await Game.findAll({
             include: [Genre,Platform]
         })
+
+        if(!gameData) res.status(404).json({message:"Sorry something went wrong."});
         const gameResults = gameData.get({plain:true})
         res.render('searchresult', {
-            gameResults,
+          logged_in: req.session.loggedIn,  
+          gameResults,
             isLogin: false
         } );
     }
@@ -33,9 +36,11 @@ router.get("/:gameName", async(req,res) =>{
         if(!gameData) res.status(404).json({message:"Sorry no games found with those paramaters :(."});
         const gameName = gameData.get({plain:true})
         res.render ('searchresult', {
-            gameName,
+          logged_in: req.session.loggedIn,  
+          gameName,
             isLogin: false
         })
+
     }
     catch(err){
         res.status(400).json(err);

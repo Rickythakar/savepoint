@@ -10,6 +10,8 @@ router.use('/favorites', favoritesRoutes);
 router.use('/api', apiRoutes);
 router.use('/home', homeRoutes);
 
-
+router.get('/', (req,res)=>{
+    res.redirect("/landing")
+})
 
 module.exports = router;

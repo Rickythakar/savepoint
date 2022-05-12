@@ -45,5 +45,5 @@ const signupFormHandler = async (event) => {
 };
 
 loginSubmit.addEventListener('submit', loginFormHandler);
-
 signupSubmit.addEventListener('submit', signupFormHandler);
+
