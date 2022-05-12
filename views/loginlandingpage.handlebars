@@ -19,23 +19,24 @@
                                 </div>
                                 {{!-- <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a>
                                 </p> --}}
+                                <button class="btn btn-outline-light btn-lg px-5" id="loginBtn" type="submit">Login</button>
                                 {{else}}
                                 <h2 class="fw-bold mb-2 text-uppercase">Signup</h2>
                                 <p class="text-white-50 mb-5">Please enter a username, email, and password to sign up!</p>
                                 <div class="form-outline form-white mb-4">
-                                    <input type="email" id="typeUserX" class="form-control form-control-lg" />
+                                    <input type="username" id="typeUserX signupUser" class="form-control form-control-lg" />
                                     <label class="form-label" for="typeUserX">Username</label>
                                 </div>
                                 <div class="form-outline form-white mb-4">
-                                    <input type="email" id="typeEmailX" class="form-control form-control-lg" />
+                                    <input type="email" id="typeEmailX signupEmail" class="form-control form-control-lg" />
                                     <label class="form-label" for="typeEmailX">Email</label>
                                 </div>
                                 <div class="form-outline form-white mb-4">
-                                    <input type="password" id="typePasswordX" class="form-control form-control-lg" />
+                                    <input type="password" id="typePasswordX signupPass" class="form-control form-control-lg" />
                                     <label class="form-label" for="typePasswordX">Password</label>
                                 </div>
+                                 <button class="btn btn-outline-light btn-lg px-5" id="signupBtn" type="submit">Sign Up</button>
                                 {{/unless}}
-                                <button class="btn btn-outline-light btn-lg px-5" id="loginBtn" type="submit">Login</button>
                             </div>
                             <div>
                                 {{#unless isSignup}}
@@ -53,4 +54,5 @@
             </div>
         </div>
     </section>
-
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script rel="script" src="./js/landing.js"></script>

@@ -1,8 +1,5 @@
-const axios= require("axios");
-
 const logout = async () => {
     const response = await axios.post('/landing/logout');
-  
     if (response.ok) {
       window.location.replace('/landing');
     } else {
