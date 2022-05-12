@@ -13,8 +13,11 @@ router.post('/addreview',  async (req,res)=>{
       game_id: req.body.game_id,
       author_id: req.body.author_id,
     })
-    res.status(200).json(newReview);
-    res.render('favorites')
+    const postReview =  newReview.post({plain:true})
+    res.render('searchresult', {
+      postReview,
+      isLogin: false
+    })
   }
   catch(err){
     res.status(500).json(err);
