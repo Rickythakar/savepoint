@@ -29,7 +29,7 @@ Deployed version can be found [Here]()
 
 With this website, users are able to login with their unique credentials in order to have full access to our database. The inspiration behind the website is the IGDB website and API. In the IGDB website, users are able to search for new games and leave reviews for games they have played; plus so much more. We wanted to create a similar reference for gamers where they can search new games, add games to their wishlist, and view their list of played games. With an arcade themed website, we wanted to model a community for gamers to immurse themselves in the world of gaming. This project requires a ton of backend work; from SQL to DBeaver, all the way to Handlebars to create dynamic webpages. Our API was created to GET, POST, PUT, and DELETE new items while functioning with the frontend of the website to make it more user friendly. 
 
-With many npm packages installed, we were able to execute this project as a team quite seamlessly. In order to finish this, we had to refactor other codes and add our own paths in order to get the response we were looking for. 
+With many npm packages installed, we were able to execute this project as a team quite seamlessly. In order to finish this, we had to refactor other codes and add our own paths in order to get the response we were looking for. The biggest challenge in this project was debugging because the routes would work but they were set to different locations in the file. After overcoming that, the project came together much nicer. If we had more time, we would focus more on styling to make the UI design more appealing, however the main focus was getting results on the page. Overall, this project would not come to life without the collaboration.
 
 
 
@@ -40,7 +40,8 @@ With many npm packages installed, we were able to execute this project as a team
 - JavaScript
 - SQL
 - Bootstrap
-- Google Fonts
+- Express.js
+- Sequelize
 - IGDB.com API
 - Just in Mind wireframe
 - Heroku
