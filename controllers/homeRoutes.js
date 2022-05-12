@@ -8,8 +8,9 @@ router.get('/', async (req, res) => {
       let random= Math.floor(Math.random()*200);
       console.log(random);
       let showcaseItem= await Game.findByPk(random,{
-        attributes: ['release_date','cover_art_url','title','id']
+        attributes: ['cover_art_url','title','id']
       });
+      
       showcaseGame= showcaseItem.get({plain:true});
       gamesArr.push(showcaseGame);
     }
