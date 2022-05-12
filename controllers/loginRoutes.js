@@ -14,6 +14,7 @@ router.get('/', async(req,res)=>{
                 isSignup: false,
                 script: scriptSrc
             })
+
         }
     } catch(err){
         res.status(500).json(err);

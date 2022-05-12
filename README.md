@@ -6,7 +6,10 @@
 Deployed version can be found [Here]()
 
  ## How to use this site:
-1. 
+1. The landing page will be a login screen- users can not see this website until they have logged in first. If they have not logged in, they will be redirected back to the landing page to encourage a login process.
+2. Once logged in, users can see a navigational header that never changes in order to have routes available on every page. The user will also see the homepage after login, which will allow them to see game recommendations as well as a search bar.
+3. If a user searches for a game, they will see a results page which allows them to see a picture of the game, the title, and the description of the game as well as reviews from other users. Then, they can add the game to their wishlist or played list- which can be viewed in another route.
+4. If the users chooses, they can view their lists- a played already list and a wishlist of games they would like to try.
 
 
 
@@ -24,6 +27,10 @@ Deployed version can be found [Here]()
 
 ## Indepth analysis
 
+With this website, users are able to login with their unique credentials in order to have full access to our database. The inspiration behind the website is the IGDB website and API. In the IGDB website, users are able to search for new games and leave reviews for games they have played; plus so much more. We wanted to create a similar reference for gamers where they can search new games, add games to their wishlist, and view their list of played games. With an arcade themed website, we wanted to model a community for gamers to immurse themselves in the world of gaming. This project requires a ton of backend work; from SQL to DBeaver, all the way to Handlebars to create dynamic webpages. Our API was created to GET, POST, PUT, and DELETE new items while functioning with the frontend of the website to make it more user friendly. 
+
+With many npm packages installed, we were able to execute this project as a team quite seamlessly. In order to finish this, we had to refactor other codes and add our own paths in order to get the response we were looking for. 
+
 
 
 ## Technology Used
@@ -37,6 +44,9 @@ Deployed version can be found [Here]()
 - IGDB.com API
 - Just in Mind wireframe
 - Heroku
+- Handlebars
+- Node.js
+- DBeaver
 
 
 ## User's Personal Github Accounts
