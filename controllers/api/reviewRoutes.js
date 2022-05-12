@@ -4,15 +4,17 @@ const { User, Game, Review } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 
-router.post('/addreview', withAuth, async (req,res)=>{
+router.post('/addreview',  async (req,res)=>{
+  console.log(req.body)
   try{
     const newReview= await Review.create({
       rating: req.body.rating,
       content: req.body.content,
-      game_id: req.body.gameId,
-      author_id: req.body.authorId,
+      game_id: req.body.game_id,
+      author_id: req.body.author_id,
     })
     res.status(200).json(newReview);
+    res.render('favorites')
   }
   catch(err){
     res.status(500).json(err);
@@ -27,8 +29,8 @@ router.put('/:author_Id', withAuth, async (req,res)=>{
       where:{
         rating: req.body.rating,
         content: req.body.content,
-        game_id: req.body.gameId,
-        author_id: req.params.author_Id
+        game_id: req.body.game_id,
+        author_id: req.params.author_id
       }
     })
     if(!updatedReview){
@@ -41,14 +43,14 @@ router.put('/:author_Id', withAuth, async (req,res)=>{
   }
 });
 
-router.delete('/:author_Id/delete', withAuth, async(req,res)=>{
+router.delete('/:author_id/delete', withAuth, async(req,res)=>{
   try{
     const deleteReview= await Review.destroy({
       where:{
         rating: req.body.rating,
         content: req.body.content,
-        game_id: req.body.gameId,
-        author_id: req.params.author_Id
+        game_id: req.body.game_id,
+        author_id: req.params.author_id
       }
     })
     res.status(200).json(deleteReview);

@@ -10,6 +10,7 @@ router.get('/', async(req,res)=>{
                 isLogin: true,
                 isSignup: false
             })
+
         }
     } catch(err){
         res.status(500).json(err);
