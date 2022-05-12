@@ -7,7 +7,11 @@ router.get("/", async(req,res) =>{
         const gameData= await Game.findAll({
             include: [Genre,Platform]
         })
-        res.status(200).json(gameData);
+        const gameResults = gameData.get({plain:true})
+        res.render('searchresult', {
+            gameResults,
+            isLogin: false
+        } );
     }
     catch(err){
         res.status(400).json(err);
@@ -27,11 +31,32 @@ router.get("/:gameName", async(req,res) =>{
             include:[Genre,Platform]
         })
         if(!gameData) res.status(404).json({message:"Sorry no games found with those paramaters :(."});
-        res.status(200).json(gameData)
+        const gameName = gameData.get({plain:true})
+        res.render ('searchresult', {
+            gameName,
+            isLogin: false
+        })
     }
     catch(err){
         res.status(400).json(err);
     }
 }); 
+
+router.get('/single/:id', async(req,res) => {
+    try{
+        const gameData = await Game.findByPk ( req.params.id, {
+            include: [Genre,Platform]
+        })
+        if(!gameData) res.status(404).json({message: "No game found with this ID"});
+        const gameResult = gameData.get({plain:true})
+        res.render ('searchresult',{
+            gameResult,
+            isLogin: false
+        })
+    }
+    catch(err){
+        res.status(400).json(err);
+    }
+});
 
 module.exports= router;

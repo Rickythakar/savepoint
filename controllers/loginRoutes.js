@@ -5,11 +5,11 @@ router.get('/', async(req,res)=>{
     try{
         if(req.session.loggedIn){
             res.redirect('/home');
-        } else{
-            res.render("login", {
-                loggedIn: req.session.loggedIn,
-                isSignup: false
-            })
+        // } else{
+        //     // res.render("login", {
+        //         loggedIn: req.session.loggedIn,
+        //         isSignup: false
+        //     })
         }
     } catch(err){
         res.status(500).json(err);
