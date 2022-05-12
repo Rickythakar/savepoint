@@ -5,16 +5,17 @@ router.get('/', async (req, res) => {
   try {
     const gamesArr=[];
     for(i=0; i<3;i++){
-      showcaseItem= await Game.findByPk(Math.floor(Math.Random*200),{
+      let random= Math.floor(Math.random()*200);
+      console.log(random);
+      let showcaseItem= await Game.findByPk(random,{
         attributes: ['cover_art_url','title','id']
       });
-
+      showcaseGame= showcaseItem.get({plain:true});
+      gamesArr.push(showcaseItem);
     }
-
-    
-
     res.render('homepage', { 
       isLogin: false,
+      gamesArr,
       loggedIn: req.session.loggedIn 
     });
   } catch (err) {

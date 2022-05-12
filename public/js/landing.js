@@ -21,8 +21,8 @@ const loginFormHandler = async (event) => {
       password: pass
     });
 
-    if (response.ok) {
-      console.log("User logged in.");
+    if (response) {
+      window.location.replace('/home');
     } else {
       alert(response.statusText);
     }
@@ -45,8 +45,8 @@ const signupFormHandler = async (event) => {
       password: uPass
     });
 
-    if (response.ok) {
-      console.log("User Created")
+    if (response) {
+      window.location.replace('/home');
     } else {
       alert(response.statusText);
     }

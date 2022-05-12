@@ -2,11 +2,11 @@ const router = require('express').Router();
 const { Playlist} = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.post('/add', async (req,res)=>{
+router.post('/:gameId/add', async (req,res)=>{
   try{
     const newGame= await Playlist.create({
-      user_id: req.body.userId,
-      game_id: req.body.gameId
+      user_id: req.session.userId,
+      game_id: req.params.gameId
     })
     res.status(200).json(newGame);
   }
@@ -15,7 +15,7 @@ router.post('/add', async (req,res)=>{
   }
 });
 
-router.put('/:game_Id',  async (req,res)=>{
+router.put('/:gameId',  async (req,res)=>{
   try{
     const newPlayed= await Playlist.update({
       played: true
@@ -23,7 +23,7 @@ router.put('/:game_Id',  async (req,res)=>{
     {
       where:{
         user_id: req.session.userId,
-        game_id: req.params.game_Id
+        game_id: req.params.gameId
       }
     })
     if(!newPlayed){
@@ -36,12 +36,12 @@ router.put('/:game_Id',  async (req,res)=>{
   }
 });
 
-router.delete('/:game_Id/remove', withAuth, async(req,res)=>{
+router.delete('/:gameId/delete', withAuth, async(req,res)=>{
   try{
     const removed= await Playlist.destroy({
       where:{
         user_id: req.session.userId,
-        game_id: req.params.game_Id
+        game_id: req.params.gameId
       }
     })
     res.status(200).json(removed);
