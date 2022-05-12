@@ -11,7 +11,7 @@ router.use('/api', apiRoutes);
 router.use('/home', homeRoutes);
 
 router.get('/', (req,res)=>{
-    res.redirect("/landing")
+    res.redirect("/landing/login")
 })
 
 module.exports = router;
