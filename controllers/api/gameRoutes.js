@@ -2,6 +2,8 @@ const router= require('express').Router();
 const {Game, Genre, Platform} = require("../../models");
 const {Op} = require("sequelize");
 
+
+
 router.get("/", async(req,res) =>{
     try{
         const gameData= await Game.findAll({

@@ -1,6 +1,9 @@
 const router = require('express').Router();
 const {User} = require("../models");
 
+const stylesheetHref= "../../public/css/landing.css";
+const scriptSrc= "../../public/js/landing.js";
+
 router.get('/', async(req,res)=>{
     try{
         if(req.session.loggedIn){
@@ -8,7 +11,8 @@ router.get('/', async(req,res)=>{
         } else{
             res.render("loginlandingpage", {
                 isLogin: true,
-                isSignup: false
+                isSignup: false,
+                script: scriptSrc
             })
         }
     } catch(err){
@@ -42,7 +46,7 @@ router.post('/signup', async(req,res)=>{
         req.session.save(()=>{
             req.session.loggedIn= true;
             req.session.userId= newUser.id;
-            res.status(200).json(newUser);
+            res.redirect('/home');
         })
     } 
     catch(err){
@@ -58,14 +62,14 @@ router.post('/login', async(req,res)=>{
             }});
 
         if(!userData){
-            res.status(400).json({message:"Incorrect username. Try again please."});
+            res.status(400).json({message:"Incorrect email. Try again please."});
         } else{
             const validPass= userData.checkPassword(req.body.password);
             if(!validPass) res.status(400).json({message:"Incorrect password. Try again please."});
             else{
                 req.session.loggedIn= true; 
                 req.session.userId= userData.id;
-                res.status(200).json(userData);
+                res.redirect('/home');
             }    
         }
     } catch(err){
