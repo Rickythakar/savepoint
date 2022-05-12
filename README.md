@@ -13,6 +13,12 @@ Deployed version can be found [Here]()
 
 
 
+## PowerPoint Presentation
+
+[SavePoint Presentation](https://docs.google.com/presentation/d/17pfS_hZK4mhiiGfGLVumj8adZYPEiH0F1HKXs5503CM/edit#slide=id.g129d478b827_0_135)
+
+
+
 ## Please see the video down below for the demo:
 
 ![]()
@@ -69,3 +75,5 @@ With many npm packages installed, we were able to execute this project as a team
 [Veronica Harris](https://github.com/VHarris113)
 
 [Andy Waine](https://github.com/Andy-Waine)
+
+
