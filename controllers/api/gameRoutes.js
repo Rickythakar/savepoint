@@ -7,13 +7,11 @@ const {Op} = require("sequelize");
 router.get("/", async(req,res) =>{
     try{
         const gameData= await Game.findAll({
-            attributes: ['title', 'release_date', 'rating', 'id'],
-            include: [Genre,Platform]
-        })
-
+            attributes: ['title', 'rating', 'id']
+        });
+        console.log(gameData)
         if(!gameData) res.status(404).json({message:"Sorry something went wrong."});
-        const gameResults = gameData.map(async(game)=> {
-            game.release_date= await game.convertDate();
+        const gameResults =  gameData.map((game)=> {
             game.get({plain:true});
         });
         console.log(gameResults);
@@ -44,7 +42,7 @@ router.get("/:gameName", async(req,res) =>{
         if(!gameData) res.status(404).json({message:"Sorry no games found with those paramaters :(."});
         const gameResults = gameData.map(async(game)=> {
             game.release_date= await game.convertDate();
-            game.get({plain:true});
+            game= game.get({plain:true});
         });
         console.log(gameResults);
         res.render ('searchResults', {
@@ -68,10 +66,10 @@ router.get('/single/:id', async(req,res) => {
         gameData.release_date= await gameData.convertDate();
         const gameResult = gameData.get({plain:true})
         console.log(gameResult);
-        // res.render ('gameDetails',{
-        //     gameResult,
-        //     isLogin: false
-        // })
+        res.render ('gameDetails',{
+            gameResult,
+            isLogin: false
+        })
         res.status(200).json(gameResult);
     }
     catch(err){
