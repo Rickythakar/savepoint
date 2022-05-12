@@ -3,9 +3,9 @@
       <div class="card-body p-5 text-center">
         <div class="mb-md-5 mt-md-4 pb-5">
           <h2 class="fw-bold mb-2 text-uppercase">POPULAR GAMES</h2>
-          {{!-- {{#each gamesArr as |game|}}
-            {{< result}}
-          {{/each}}  --}}
+          {{#each gamesArr as |game|}}
+            {{> result}}
+          {{/each}} 
           <!-- add cards for games(Will be same ones we need for result.hbs)-->
         </div>
         </p>
@@ -20,11 +20,14 @@
             <p class="text-white-50 mb-5">Search more games</p>
             <div class="form-outline form-white mb-4">
               <!-- search bar -->
-              <input type="search" class="form-control form-control-lg" />
+              <input type="search" id="searchBar" class="form-control form-control-lg" />
               <!-- hook into search button here to create event listener for searching for a game -->
-              <label type="button" for="search">Seach</label>
+              <label type="button" id="searchSubmit" for="search">Seach</label>
             </div>
             </p>
           </div>
         </div>
   </section>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script rel="script" src="/public/js/search.js"></script>
