@@ -29,9 +29,10 @@ router.get("/", async(req,res) =>{
 router.get("/:gameName", async(req,res) =>{
     try{
         const searchTerm= req.params.gameName;
+        console.log("looking for games")
         console.log(searchTerm);
         const gameData= await Game.findAll({
-            attributes: ['title', 'release_date', 'rating', 'id'],
+            attributes: ['title', 'release_date', 'rating', 'id', 'cover_art_url'],
             where:{
                 title:{
                     [Op.like]: `%${searchTerm}%`
@@ -40,11 +41,9 @@ router.get("/:gameName", async(req,res) =>{
             include:[Genre,Platform]
         })
         if(!gameData) res.status(404).json({message:"Sorry no games found with those paramaters :(."});
-        const gameResults = gameData.map(async(game)=> {
-            game.release_date= await game.convertDate();
-            game= game.get({plain:true});
+        const gameResults = gameData.map((game)=> {
+            return game.toJSON();
         });
-        console.log(gameResults);
         res.render ('searchResults', {
             loggedIn: req.session.loggedIn,  
             gameResults,
