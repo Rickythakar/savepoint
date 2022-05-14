@@ -59,9 +59,27 @@ router.get("/:gameName", async(req,res) =>{
 router.get('/single/:id', async(req,res) => {
     try{
         const gameData = await Game.findByPk (req.params.id, {
-            include: [Genre, Platform, Review]
-        })
+            include: [{
+                model: Genre,
+                attributes: ["g_tag"],
+                through:{
+                    attributes:[]
+                }
+            },
+            {
+                model: Platform,
+                attributes: ["p_tag"],
+                through:{
+                    attributes:[]
+                }
+            },
+            {
+                model: Review
+            }
+        ]
+    });
         if(!gameData) res.status(404).json({message: "No game found with this ID"});
+        
         gameData.release_date= await gameData.convertDate();
         const gameResult = gameData.get({plain:true})
         console.log(gameResult);
@@ -69,7 +87,6 @@ router.get('/single/:id', async(req,res) => {
             gameResult,
             isLogin: false
         })
-        res.status(200).json(gameResult);
     }
     catch(err){
         res.status(400).json(err);
