@@ -40,8 +40,8 @@ router.get("/:gameName", async(req,res) =>{
             include:[Genre,Platform]
         })
         if(!gameData) res.status(404).json({message:"Sorry no games found with those paramaters :(."});
-        const gameResults = gameData.map(async(game)=> {
-            game.release_date= await game.convertDate();
+        const gameResults = gameData.map((game)=> {
+            console.log(game);
             game= game.get({plain:true});
         });
         console.log(gameResults);
