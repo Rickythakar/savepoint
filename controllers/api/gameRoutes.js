@@ -29,9 +29,10 @@ router.get("/", async(req,res) =>{
 router.get("/:gameName", async(req,res) =>{
     try{
         const searchTerm= req.params.gameName;
+        console.log("looking for games")
         console.log(searchTerm);
         const gameData= await Game.findAll({
-            attributes: ['title', 'release_date', 'rating', 'id'],
+            attributes: ['title', 'release_date', 'rating', 'id', 'cover_art_url'],
             where:{
                 title:{
                     [Op.like]: `%${searchTerm}%`
@@ -41,10 +42,8 @@ router.get("/:gameName", async(req,res) =>{
         })
         if(!gameData) res.status(404).json({message:"Sorry no games found with those paramaters :(."});
         const gameResults = gameData.map((game)=> {
-            console.log(game);
-            game= game.get({plain:true});
+            return game.toJSON();
         });
-        console.log(gameResults);
         res.render ('searchResults', {
             loggedIn: req.session.loggedIn,  
             gameResults,
@@ -60,9 +59,27 @@ router.get("/:gameName", async(req,res) =>{
 router.get('/single/:id', async(req,res) => {
     try{
         const gameData = await Game.findByPk (req.params.id, {
-            include: [Genre, Platform, Review]
-        })
+            include: [{
+                model: Genre,
+                attributes: ["g_tag"],
+                through:{
+                    attributes:[]
+                }
+            },
+            {
+                model: Platform,
+                attributes: ["p_tag"],
+                through:{
+                    attributes:[]
+                }
+            },
+            {
+                model: Review
+            }
+        ]
+    });
         if(!gameData) res.status(404).json({message: "No game found with this ID"});
+        
         gameData.release_date= await gameData.convertDate();
         const gameResult = gameData.get({plain:true})
         console.log(gameResult);
@@ -70,7 +87,6 @@ router.get('/single/:id', async(req,res) => {
             gameResult,
             isLogin: false
         })
-        res.status(200).json(gameResult);
     }
     catch(err){
         res.status(400).json(err);
