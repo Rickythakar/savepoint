@@ -4,7 +4,7 @@ const { User, Game } = require('../models');
 router.get('/', async (req, res) => {
   try {
     const gamesArr=[];
-    for(i=0; i<3;i++){
+    for(i=0; i<12;i++){
       let random= Math.floor(Math.random()*200);
       console.log(random);
       let showcaseItem= await Game.findByPk(random,{
