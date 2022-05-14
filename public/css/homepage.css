@@ -45,3 +45,12 @@ header,
 
 
 
+#popular-games {
+    font-family:monospace;
+    color:aqua;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
