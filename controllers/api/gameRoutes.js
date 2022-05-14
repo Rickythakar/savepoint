@@ -67,9 +67,11 @@ router.get("/:gameName", async(req,res) =>{
             }]
 })
         if(!gameData) res.status(404).json({message:"Sorry no games found with those paramaters :(."});
-        const gameResults = gameData.map(async (game)=> {
+        console.log(gameData);
+        const gameResults = gameData.map((game)=> {
             return game.toJSON();
         });
+        console.log(gameResults);
 
         res.render ('searchResults', {
             loggedIn: req.session.loggedIn,  
