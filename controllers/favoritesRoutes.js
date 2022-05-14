@@ -12,7 +12,7 @@ router.get('/', async (req,res)=>{
             },
             include:{
                 model: Game,
-                attributes:['title', 'cover_art_url', 'id'],
+                attributes:['title',  'id'],
                 through:{
                     attributes:['played']
                 }
