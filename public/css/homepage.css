@@ -4,7 +4,7 @@
     --dark-purple: #381E40;
     --grey: #141726;
     --blue: #1D4B73;
-  }
+}
 
 header {
     text-align: center;
@@ -14,14 +14,13 @@ header {
 }
 
 /* Creating styling for nav bar */
-nav
-{
+nav {
     margin-top: 20px;
     text-align: center;
 }
 
-nav ul{
-    border:1px solid var(--light-pink);
+nav ul {
+    border: 1px solid var(--light-pink);
     border-left: 0;
     border-right: 0;
     display: flex;
@@ -31,8 +30,9 @@ nav ul{
 #navLink {
     color: var(--light-pink);
     text-decoration: none;
-    text-shadow:0 0 10px #fff, 0 0 20px #ff4da6, 0 0 30px #ff4da6;
+    text-shadow: 0 0 10px #fff, 0 0 20px #ff4da6, 0 0 30px #ff4da6;
 }
+
 
 #navLink:hover{
     -webkit-animation: navGlow 1s ease-in-out infinite alternate;
@@ -81,14 +81,15 @@ header,
 }
 
 #popular-games {
-    font-family:monospace;
-    color:red;
+    font-family: monospace;
+    color: red;
     /* display: flex; */
     justify-content: space-between;
 }
 
-.gameResults{
+.gameResults {
     display: flex;
-    flex: wrap;    
+    flex: wrap;
     background-color: gray;
+
 }
