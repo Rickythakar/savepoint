@@ -5,7 +5,6 @@ header {
     height: 100px;
 }
 
-
 /* Creating styling for nav bar */
 nav
 {
@@ -43,14 +42,15 @@ header,
     background: linear-gradient(to center, #1d4b73, rgb(91, 10, 75));
 }
 
-
-
 #popular-games {
     font-family:monospace;
-    color:aqua;
-    display: flex;
+    color:red;
+    /* display: flex; */
     justify-content: space-between;
 }
 
-
-
+.gameResults{
+    display: flex;
+    flex: wrap;    
+    background-color: gray;
+}

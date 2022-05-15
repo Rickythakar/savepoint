@@ -5,8 +5,6 @@ header {
     font-family: monospace;
     height: 100px;
 }
-
-
 /* Creating styling for nav bar */
 nav
 {
@@ -22,12 +20,10 @@ nav
     -moz-animation: glow 1s ease-in-out infinite alternate;
     animation: glow 1s ease-in-out infinite alternate;
 }
-
 @-webkit-keyframes glow {
     from {
         text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
     }
-
     to {
         text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
     }
@@ -43,18 +39,3 @@ header,
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     background: linear-gradient(to center, #1d4b73, rgb(91, 10, 75));
 }
-
-
-.parent {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
-    }
-    
-    .div1 { grid-area: 1 / 1 / 2 / 4; }
-    .div2 { grid-area: 2 / 2 / 3 / 3; }
-    .div3 { grid-area: 3 / 2 / 4 / 3; }
-    .div4 { grid-area: 2 / 3 / 4 / 5; }
-    .div5 { grid-area: 4 / 2 / 5 / 5; }
