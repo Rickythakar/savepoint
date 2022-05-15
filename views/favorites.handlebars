@@ -1,4 +1,15 @@
-<h1>Favorites</h1>
+<h1>{{userData.username}}'s Favorites</h1>
 <div class="savedGames">
-{{!-- Insert saved games here --}}
+{{#each userData.games as |game|}}
+    <div class="gameItem">
+        <a href="http://localhost:3001/api/games/single/{{id}}">
+        {{title}}
+        </a>
+        {{#if playlist.played}}
+            <p>Played<i class="fa-solid fa-gamepad"></i></p>
+        {{else}}
+            <p>In progress<i class="fa-solid fa-dungeon"></i></p>
+         {{/if}}
+    </div>
+{{/each}}
 </div>
