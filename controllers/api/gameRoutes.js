@@ -42,8 +42,6 @@ router.get("/", async(req,res) =>{
 router.get("/:gameName", async(req,res) =>{
     try{
         const searchTerm= req.params.gameName;
-        console.log("looking for games")
-        console.log(searchTerm);
         const gameData= await Game.findAll({
             attributes: ['title', 'rating', 'id', 'cover_art_url'],
             where:{
@@ -111,7 +109,6 @@ router.get('/single/:id', async(req,res) => {
 
         gameData.release_date= await gameData.convertDate();
         const gameResult = gameData.get({plain:true})
-        console.log(gameResult);
         res.render ('gameDetails',{
             gameResult,
             isLogin: false
