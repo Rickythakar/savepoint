@@ -1,11 +1,19 @@
 <!--partial template for displaying search results/game. should just be title, release date, cover art, genres/platforms-->
 <!--Somewhere have an <a> tag with an href of href="api/games/single/{{game.id}}-->
 
-<div class="box1">
+{{!-- <div class="box1" style="display:inline-flex">
     <a href="api/games/single/{{id}}">
-    <h1>{{title}}</h1>
+        <h1>{{title}}</h1>
         <h4>{{release_date}}</h4>
-                <img src="{{cover_art_url}}">
+        <img src="{{cover_art_url}}">
     </a>
-</div>
+</div> --}}
 
+<div class="card gameResults" style="width:20rem;">
+    <img class="card-img-top" src="{{cover_art_url}}" alt="Card image cap">
+    <div class="card-body">
+        <p class="card-text">{{title}}</p>
+        <a href="#" class="btn btn-primary">Favorite</a>
+        <a href="#" class="btn btn-primary">Review</a>
+    </div>
+</div>
