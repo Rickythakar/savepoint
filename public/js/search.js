@@ -6,7 +6,7 @@ const searchHandler= async (event) =>{
     if(sBar.value.trim()){
         window.location.replace(`/api/games/${sBar.value.trim()}`);
     } else {
-        window.location.replace("api/games")
+        window.location.replace("/api/games");
     }
 
 };
