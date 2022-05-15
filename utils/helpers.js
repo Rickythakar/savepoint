@@ -22,7 +22,7 @@ module.exports = {
       break;
     }
   },
-  getInt: (int) =>{
+  get_int: (int) =>{
     return parseInt(int);
   }
 

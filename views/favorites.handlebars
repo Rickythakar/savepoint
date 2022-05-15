@@ -10,9 +10,9 @@
                 <p>Played<i class="fa-solid fa-gamepad"></i></p>
             {{else}}
                 <p>In progress<i class="fa-solid fa-dungeon"></i></p>
-                <p>Cleared the game?<span><button type="button" id="completeToggle" data-id={{id}}><i class="fa-solid fa-scroll"></i></button></span></p>
+                <p>Cleared the game?<span><button type="button" id="completeToggle" data-id={{get_int id}}><i class="fa-solid fa-scroll"></i></button></span></p>
             {{/if}}
-                <p>Clear your save?<span><button type="button" id="deleteBtn" data-id={{id}}><i class="fa-solid fa-minus"></i></button></span></p>
+                <p>Clear your save?<span><button type="button" id="deleteBtn" data-id={{get_int id}}><i class="fa-solid fa-minus"></i></button></span></p>
         </div>
     </div>
 {{/each}}
