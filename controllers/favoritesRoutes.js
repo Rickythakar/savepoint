@@ -8,7 +8,7 @@ router.get('/', async (req,res)=>{
         const currUser= await User.findOne({
             attributes:['username'],
             where:{
-                id: req.body.userId
+                id: req.session.userId
             },
             include:{
                 model: Game,
@@ -18,14 +18,13 @@ router.get('/', async (req,res)=>{
                 }
             } 
         });
-        const userData=  currUser.get({plain:true});
-        res.status(200).json(userData);
+        const userData= currUser.get({plain:true});
 
-        // res.render("favorites",{
-        //     userData,
-        //     loggedIn: req.session.userId,
-        //     isLogin: false
-        // })
+        res.render("favorites",{
+            userData,
+            loggedIn: req.session.userId,
+            isLogin: false
+        })
 
     }
     catch(err){
