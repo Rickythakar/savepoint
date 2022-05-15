@@ -24,13 +24,13 @@
     <ul>
       <!-- links for nav bar can go here -->
       <a href="/home">Home</a>
-      {{#if loggedIn}}
+      <a href="/favorites">Favorites</a>
+      <a href="https://www.twitch.tv" target="_blank">Twitch</a>
+            {{#if loggedIn}}
       <a href="/landing/login" id="logout">Logout</a>
       {{else}}
       <a href="/landing/login">Login</a>
       {{/if}}
-      <a href="/favorites">Playlist</a>
-      <a href="https://www.twitch.tv" target="_blank">Twitch</a>
     </ul>
   </nav>
 {{/unless}}

@@ -693,6 +693,10 @@ a:hover {
   padding: 1.375rem;
 }
 
+.p-5 {
+  padding: 1.625rem;
+}
+
 /* padding-bottom */
 .pb-0 {
   padding-bottom: 0;
