@@ -22,4 +22,10 @@ module.exports = {
       break;
     }
   },
+  getInt: (int) =>{
+    return parseInt(int);
+  }
+
 };
+
+
