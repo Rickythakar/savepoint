@@ -5,8 +5,11 @@
     <a href="http://localhost:3001/api/games/single/{{id}}">
     <img class="card-img-top" src="{{cover_art_url}}" alt="Card image cap">
     <div class="card-body">
-        <p class="card-text" style="color:red">{{title}}</p>
+        <p class="card-text" style="font-family: Arial, Helvetica, sans-serif; color:rgb(248, 245, 245)">{{title}}</p>
     </a>
+
+    <br>
+        <a href="#" class="btn btn-primary">★ Favorite</a>
         <a href="#" data-id= {{id}} id="addPBtn" class="btn btn-primary">Favorite</a>
         <a href="#" data-id= {{id}} id="addRBtn" class="btn btn-primary">Review</a>
     </div>
