@@ -18,7 +18,7 @@ router.get('/', async (req,res)=>{
                 }
             } 
         });
-        const userData= await currUser.get({plain:true});
+        const userData= currUser.get({plain:true});
 
         res.render("favorites",{
             userData,
