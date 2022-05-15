@@ -1,4 +1,4 @@
-const toggleBtn= document.querySelector("#completeToggle");
+const general= document.querySelector("main");
 const deleteBtn="";
 
 const updateHandler= async (event,id) =>{
@@ -13,6 +13,8 @@ const deleteHandler= async (event,id) =>{
     if(response) window.location.reload(true);
 }
 
-toggleBtn.addEventListener('click',(event)=>{
-    updateHandler(event, event.target.dataset.id);
+general.addEventListener('click',(event)=>{
+    if(event.target.id=="completeToggle"){
+        updateHandler(event, event.target.dataset.id);
+    }
 });

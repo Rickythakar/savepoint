@@ -21,11 +21,7 @@ module.exports = {
         //dosomethin
       break;
     }
-  },
-  get_int: (int) =>{
-    return parseInt(int);
   }
-
 };
 
 
