@@ -41,8 +41,8 @@ router.post('/signup', async(req,res)=>{
         req.session.save(()=>{
             req.session.loggedIn= true;
             req.session.userId= newUser.id;
-            res.redirect('/home');
         })
+        res.status(200).json(newUser);
     } 
     catch(err){
         res.status(500).json(err);
@@ -64,9 +64,9 @@ router.post('/login', async(req,res)=>{
             else{
                 req.session.loggedIn= true; 
                 req.session.userId= userData.id;
-                res.redirect('/home');
             }    
         }
+        res.status(200).json(userData);
     } catch(err){
         res.status(500).json(err);
     }

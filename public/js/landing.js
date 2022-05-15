@@ -4,21 +4,15 @@ const signupSubmit=document.querySelector('#signupBtn');
 
 const loginFormHandler = async (event) => {
   event.preventDefault();
-  console.log("hi :)");
-  const emailInput= document.querySelector('#typeEmailX');
-  const passInput= document.querySelector('#typePasswordX');
-  let uEmail;
-  let pass;
 
-  if(emailInput!=null && passInput!=null){
-    uEmail = emailInput.value.trim();
-    pass = passInput.value.trim();
-  }
+  const uEmail= document.querySelector('#typeEmailX').value.trim();
+  const uPass= document.querySelector('#typePasswordX').value.trim();
+  
 
-  if (uEmail && pass) {
+  if (uEmail && uPass) {
     const response = await axios.post('/landing/login', {
       email: uEmail,
-      password: pass
+      password: uPass
     });
 
     if (response) {
@@ -32,12 +26,9 @@ const loginFormHandler = async (event) => {
 const signupFormHandler = async (event) => {
   event.preventDefault();
 
-  console.log("hi :)");
-
   const uName = document.querySelector('#typeUserX').value.trim();
   const uEmail = document.querySelector('#typeEmailX').value.trim();
   const uPass = document.querySelector('#typePasswordX').value.trim();
-  console.log(uName);
 
   if (uName && uEmail && uPass) {
     const response = await axios.post('/landing/signup', {
@@ -46,12 +37,10 @@ const signupFormHandler = async (event) => {
       password: uPass
     });
 
-    console.log(response);
-
     if (response) {
       window.location.replace('/home');
     } else {
-      alert(response.statusText);
+      window.alert("Wrong email and/or password. Please re-enter.");
     }
   }
 };

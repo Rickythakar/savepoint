@@ -90,6 +90,7 @@ header,
 .gameResults {
     display: flex;
     flex: wrap;
-    background-color: gray;
+    padding-top: 15px;
+    background-color: var(--dark-purple);
 
 }
