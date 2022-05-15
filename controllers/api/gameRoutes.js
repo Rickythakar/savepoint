@@ -7,7 +7,21 @@ const {Op} = require("sequelize");
 router.get("/", async(req,res) =>{
     try{
         const gameData= await Game.findAll({
-            attributes: ['title', 'release_date', 'rating', 'id', 'cover_art_url'],
+            attributes: ['title', 'rating', 'id', 'cover_art_url'],
+            include:[{
+                model: Genre,
+                attributes: ["g_tag"],
+                through:{
+                    attributes:[]
+                }
+            },
+            {
+                model: Platform,
+                attributes: ["p_tag"],
+                through:{
+                    attributes:[]
+                }
+            }]
         });
         console.log(gameData)
         if(!gameData) res.status(404).json({message:"Sorry something went wrong."});
@@ -31,18 +45,34 @@ router.get("/:gameName", async(req,res) =>{
         console.log("looking for games")
         console.log(searchTerm);
         const gameData= await Game.findAll({
-            attributes: ['title', 'release_date', 'rating', 'id', 'cover_art_url'],
+            attributes: ['title', 'rating', 'id', 'cover_art_url'],
             where:{
                 title:{
                     [Op.like]: `%${searchTerm}%`
                 }
             },
-            include:[Genre,Platform]
-        })
+            include:[{
+                model: Genre,
+                attributes: ["g_tag"],
+                through:{
+                    attributes:[]
+                }
+            },
+            {
+                model: Platform,
+                attributes: ["p_tag"],
+                through:{
+                    attributes:[]
+                }
+            }]
+})
         if(!gameData) res.status(404).json({message:"Sorry no games found with those paramaters :(."});
+        console.log(gameData);
         const gameResults = gameData.map((game)=> {
             return game.toJSON();
         });
+        console.log(gameResults);
+
         res.render ('searchResults', {
             loggedIn: req.session.loggedIn,  
             gameResults,
