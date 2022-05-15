@@ -1,3 +1,11 @@
+:root {
+    --light-pink: #F1BBF2;
+    --purple: #6B3073;
+    --dark-purple: #381E40;
+    --grey: #141726;
+    --blue: #1D4B73;
+  }
+
 header {
     text-align: center;
     font-size: 50px;
@@ -12,13 +20,43 @@ nav
     text-align: center;
 }
 
+nav ul{
+    border:1px solid var(--light-pink);
+    border-left: 0;
+    border-right: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+#navLink {
+    color: var(--light-pink);
+    text-decoration: none;
+    text-shadow:0 0 10px #fff, 0 0 20px #ff4da6, 0 0 30px #ff4da6;
+}
+
+#navLink:hover{
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternate;
+}
+
 .glow {
     font-size: 80px;
     color: #fff;
     text-align: center;
-    -webkit-animation: glow 1s ease-in-out infinite alternate;
-    -moz-animation: glow 1s ease-in-out infinite alternate;
-    animation: glow 1s ease-in-out infinite alternate;
+    -webkit-animation: navGlow 1s ease-in-out infinite alternate;
+    -moz-animation: navGlow 1s ease-in-out infinite alternate;
+    animation: navGlow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes navGlow {
+    from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+    }
+
+    to {
+        text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+    }
 }
 
 @-webkit-keyframes glow {
