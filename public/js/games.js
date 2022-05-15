@@ -8,9 +8,8 @@ const addRevHandler= (event, id) =>{
     if(response) alert("Game successfully added.");
 }
 
-const addPlayHandler= (gId) =>{
-    console.log("game ID:"+ gId)
-    const response= axios.post(`/api/playlist/${gId}/add`);
+const addPlayHandler= (id) =>{
+    const response= axios.post(`/api/playlist/${id}/add`);
     if(response) alert("Game successfully added.");
 }
 

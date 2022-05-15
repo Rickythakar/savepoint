@@ -6,8 +6,15 @@ const {Op} = require("sequelize");
 
 router.get("/", async(req,res) =>{
     try{
+        const random= Math.floor(Math.random()*5000);
         const gameData= await Game.findAll({
             attributes: ['title', 'rating', 'id', 'cover_art_url'],
+            limit: 30,
+            where:{
+                id:{
+                    [Op.between]: [random, random+30]
+                }
+            },
             include:[{
                 model: Genre,
                 attributes: ["g_tag"],
