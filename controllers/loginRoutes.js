@@ -42,7 +42,7 @@ router.post('/signup', async(req,res)=>{
             req.session.loggedIn= true;
             req.session.userId= newUser.id;
         })
-        res.status(200).json(newUser);
+        res.redirect("/home");
     } 
     catch(err){
         res.status(500).json(err);
@@ -62,11 +62,13 @@ router.post('/login', async(req,res)=>{
             const validPass= userData.checkPassword(req.body.password);
             if(!validPass) res.status(400).json({message:"Incorrect password. Try again please."});
             else{
-                req.session.loggedIn= true; 
-                req.session.userId= userData.id;
-            }    
+                req.session.save(()=>{
+                    req.session.loggedIn= true; 
+                    req.session.userId= userData.id;
+                })
+                res.redirect("/home");
+            }
         }
-        res.status(200).json(userData);
     } catch(err){
         res.status(500).json(err);
     }
