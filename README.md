@@ -21,9 +21,10 @@ Deployed version can be found [Here](https://mysterious-atoll-10250.herokuapp.co
 
 ## Please see the video down below for the demo:
 
-![]()
-![]()
-![]()
+![](./assets/savepoint-gif.gif)
+
+
+Click [Here](https://drive.google.com/file/d/1pus2LdmIbdQtQfkrcDgo7-C4wQN4tJD-/view) to view google drive video
 
 ## Some pictures of the final product!
 
