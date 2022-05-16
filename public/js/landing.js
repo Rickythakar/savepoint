@@ -13,7 +13,7 @@ const loginFormHandler = async (event) => {
     const response = await axios.post('/landing/login', {
       email: uEmail,
       password: uPass
-    });
+    }).then((res)=>{ return res});
 
     if (response) {
       window.location.replace('/home');
@@ -35,7 +35,7 @@ const signupFormHandler = async (event) => {
       username: uName,
       email: uEmail,
       password: uPass
-    });
+    }).then((res)=>{ return res});
 
     if (response) {
       window.location.replace('/home');

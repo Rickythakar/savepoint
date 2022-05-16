@@ -3,7 +3,7 @@ const {User} = require("../models");
 
 router.get('/login', async(req,res)=>{
     try{
-        if(req.session.loggedIn){
+        if(req.session.loggedIn==true){
             res.redirect('/home');
         } else{
             res.render('login' ,{
@@ -18,7 +18,7 @@ router.get('/login', async(req,res)=>{
 
 router.get('/signup', async(req,res)=>{
     try{
-        if(req.session.loggedIn){
+        if(req.session.loggedIn==true){
             res.redirect('/home');
         } else{
             res.render('signup', {
@@ -37,6 +37,10 @@ router.post('/signup', async(req,res)=>{
             email: req.body.email,
             password: req.body.password
         });
+        console.log(newUser);
+        if(!newUser){
+            res.status(400).json({message:"Your password must at least be 8 characters and you need to have a valid email."});
+        }
         console.log(newUser.toJSON())
         req.session.save(()=>{
             req.session.loggedIn= true;
