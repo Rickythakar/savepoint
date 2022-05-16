@@ -6,6 +6,10 @@
     --blue: #1D4B73;
   }
 
+  i{
+    pointer-events: none;
+  }
+
   /* Grabbed styling from login page */
 header {
   text-align: center;

@@ -18,7 +18,7 @@ const loginFormHandler = async (event) => {
     if (response) {
       window.location.replace('/home');
     } else {
-      alert(response.statusText);
+      console.log(response.statusText);
     }
   }
 };
@@ -40,7 +40,7 @@ const signupFormHandler = async (event) => {
     if (response) {
       window.location.replace('/home');
     } else {
-      window.alert("Wrong email and/or password. Please re-enter.");
+      console.log("Wrong email and/or password. Please re-enter.");
     }
   }
 };
