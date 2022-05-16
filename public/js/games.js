@@ -4,12 +4,12 @@ const addRevHandler= (event, id) =>{
     const gId= event.target.dataset.id;
     const response= axios.post(`/api/reviews/${id}/add`, {
             gameId: gId
-    });
+    }).then((res)=>{ return res});
     if(response) alert("Game successfully added.");
 }
 
 const addPlayHandler= (id) =>{
-    const response= axios.post(`/api/playlist/${id}/add`);
+    const response= axios.post(`/api/playlist/${id}/add`).then((res)=>{ return res});
     if(response) alert("Game successfully added.");
 }
 
