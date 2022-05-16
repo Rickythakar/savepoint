@@ -11,7 +11,6 @@ const deleteHandler= async (id) =>{
 
 general.addEventListener('click',(event)=>{
     event.preventDefault();
-    console.log(event.target);
     if(event.target.id=="completeToggle"){
         updateHandler(event.target.dataset.id);
     }

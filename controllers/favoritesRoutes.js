@@ -4,6 +4,7 @@ const withAuth = require('../utils/auth');
 
 router.get('/', async (req,res)=>{
     console.log("getting user...");
+    console.log(req.session.userId)
     try{
         const currUser= await User.findOne({
             attributes:['username'],
@@ -22,7 +23,7 @@ router.get('/', async (req,res)=>{
 
         res.render("favorites",{
             userData,
-            loggedIn: req.session.userId,
+            loggedIn: req.session.loggedIn,
             isLogin: false
         })
 

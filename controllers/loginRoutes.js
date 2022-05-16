@@ -37,12 +37,12 @@ router.post('/signup', async(req,res)=>{
             email: req.body.email,
             password: req.body.password
         });
-
+        console.log(newUser.toJSON())
         req.session.save(()=>{
             req.session.loggedIn= true;
             req.session.userId= newUser.id;
+            res.status(200).json(newUser);
         })
-        res.redirect("/home");
     } 
     catch(err){
         res.status(500).json(err);
@@ -55,19 +55,16 @@ router.post('/login', async(req,res)=>{
             where:{
                 email:req.body.email
             }});
-
         if(!userData){
             res.status(400).json({message:"Incorrect email. Try again please."});
         } else{
             const validPass= userData.checkPassword(req.body.password);
-            if(!validPass) res.status(400).json({message:"Incorrect password. Try again please."});
-            else{
-                req.session.save(()=>{
-                    req.session.loggedIn= true; 
-                    req.session.userId= userData.id;
-                })
-                res.redirect("/home");
-            }
+            if(!validPass) {res.status(400).json({message:"Incorrect password. Try again please."})};
+            req.session.save(()=>{
+                req.session.loggedIn= true;
+                req.session.userId= userData.id;
+                res.status(200).json(userData);
+            })
         }
     } catch(err){
         res.status(500).json(err);
