@@ -27,9 +27,9 @@ Deployed version can be found [Here](https://mysterious-atoll-10250.herokuapp.co
 
 ## Some pictures of the final product!
 
-![]()
-![]()
-![]()
+![](./assets/login.jpg)
+![](./assets/homepage.jpg)
+![](./assets/gamesearch.jpg)
 
 ## Indepth analysis
 
