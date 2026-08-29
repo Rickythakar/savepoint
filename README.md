@@ -3,7 +3,7 @@
 
 *With this website, users can login to review their favorite saved games or add games to a wishlist to help keep track of games they would like to try out. Users can also search for new possible games to play with a searchbar that will pull up data based on genre or game console preference.*
 
-Deployed version can be found [Here](https://mysterious-atoll-10250.herokuapp.com/landing/login)
+> The original Heroku deployment has been retired. A modernized deployment is planned as part of the Savepoint revival.
 
  ## How to use this site:
 1. The landing page will be a login screen- users can not see this website until they have logged in first. If they have not logged in, they will be redirected back to the landing page to encourage a login process.
@@ -77,5 +77,4 @@ With many npm packages installed, we were able to execute this project as a team
 [Veronica Harris](https://github.com/VHarris113)
 
 [Andy Waine](https://github.com/Andy-Waine)
-
 
